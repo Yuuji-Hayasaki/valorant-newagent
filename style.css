@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("heart-bg.jpg");
+    font-family: "Pixelify Sans", sans-serif;
+    overflow: hidden;
+}
+
+/* Envelope Screen */
+#envelope-container {
+    text-align: center;
+    cursor:pointer;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#envelope {
+    width: 200px;
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+}
+
+#letter-container {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-window {
+    width: 90vw;
+    max-width: 800px;
+    aspect-ratio: 3/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 140px 40px 80px 40px;
+    text-align: center;
+    background-image: url("window.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px;
+    transform: scale(1.2);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 40px;
+}
+
+/* Cat */
+.cat {
+    width: 200px;
+    margin: 10px 0;
+    transition: width 0.4s ease;
+}
+
+.letter-window.final .cat {
+    width: 180px;
+}
+
+/* Buttons */
+.buttons {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* increased gap between buttons */
+    align-items: center;
+    width: 100%;
+    height: 140px; 
+}
+
+.yes-btn {
+    z-index: 10;
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    position: relative;
+}
+
+.no-btn {
+    z-index: 20;
+    width: 120px;
+    height: auto;
+    cursor: default;
+    transition: transform 0.25s ease;
+    position: relative; /* changed from absolute so it aligns horizontally with Yes */
+}
+
+/* Final Text */
+.final-text {
+    font-size: 20px;
+    line-height: 1.4;
+    padding: 8px 18px;
+    background-color: rgba(255,240,240,0.5);
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+/* Envelope Text */
+.envelope-text {
+    font-family: "Great Vibes", cursive;
+    font-size: 68px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff4d6d, #ff8fab, #ff4d6d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 8px rgba(255,255,255,0.7);
+}
+
+/* Flower / Boquet and rose cat outside the letter window */
+.cat-flower-outside {
+    position: absolute;        /* relative to letter container */
+    width: 230px;              /* bigger than original 120px */
+    animation: float 2s ease-in-out infinite alternate;
+    z-index: 15;
+    top: 50%;                  /* vertical center relative to container */
+    transform: translateY(-50%); /* center vertically exactly */
+}
+
+/* Left cat-flower */
+#cat-rose-left {
+    left: -400px;              /* place it outside the letter window on left */
+}
+
+/* Right cat-boquet */
+#cat-boquet-right {
+    right: -400px;             /* place it outside the letter window on right */
+}
+
+/* Float animation (up and down) */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* Falling petals */
+#petals-container {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.petal {
+    position: absolute;
+    font-size: 36px;
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
