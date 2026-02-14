@@ -142,12 +142,12 @@ p {
 
 /* Left cat-flower */
 #cat-rose-left {
-    left: -400px;              /* place it outside the letter window on left */
+    left: -280px;              /* place it outside the letter window on left */
 }
 
 /* Right cat-boquet */
 #cat-boquet-right {
-    right: -400px;             /* place it outside the letter window on right */
+    right: -280px;             /* place it outside the letter window on right */
 }
 
 /* Float animation (up and down) */
